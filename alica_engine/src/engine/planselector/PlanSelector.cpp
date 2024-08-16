@@ -231,9 +231,9 @@ bool PlanSelector::getPlansForStateInternal(
     return true;
 }
 
-void PlanSelector::setGlobalBlackboard(const Blackboard* globalBlackboard)
+void PlanSelector::setGlobalBlackboard(std::shared_ptr<const Blackboard> globalBlackboard)
 {
-    _globalBlackboard = globalBlackboard;
+    _globalBlackboard = globalBlackboard.get();
 }
 
 } /* namespace alica */

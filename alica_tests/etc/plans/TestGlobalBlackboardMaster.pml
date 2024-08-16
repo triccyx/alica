@@ -2,9 +2,9 @@
   "blackboard": [
     {
       "access": "protected",
-      "comment": "This is a blackboard entry for testing",
-      "defaultValue": null,
-      "id": 1944554894288661764,
+      "comment": "",
+      "defaultValue": "123",
+      "id": 1202182562814773905,
       "key": "masterKey",
       "type": "int64"
     }
@@ -13,29 +13,29 @@
   "entryPoints": [
     {
       "comment": "",
-      "id": 4058387577648167303,
+      "id": 3343320852743350914,
       "isDynamic": false,
       "maxCardinality": 2147483647,
       "minCardinality": 0,
-      "name": "InheritBlackboardMasterEP",
-      "plan": 1179066429431332056,
+      "name": "",
+      "plan": 450195508701585436,
       "positionWeb": {
-        "x": 265,
-        "y": 263
+        "x": 274,
+        "y": 255.30540466308594
       },
-      "state": 2069338196796962571,
+      "state": 2931682442813202891,
       "successRequired": false,
       "task": "taskrepository.tsk#1225112227903"
     }
   ],
   "frequency": 30,
-  "id": 1179066429431332056,
+  "id": 450195508701585436,
   "implementationName": "",
-  "inheritBlackboard": false,
+  "inheritBlackboard": true,
   "isInterface": false,
   "libraryName": "alica-tests",
   "masterPlan": true,
-  "name": "TestInheritBlackboardMaster",
+  "name": "TestGlobalBlackboardMaster",
   "preCondition": null,
   "runtimeCondition": null,
   "states": [
@@ -46,7 +46,7 @@
           "abstractPlan": "TestInheritBlackboard.pml#1692837668719979400",
           "comment": "",
           "configuration": null,
-          "id": 105160539449888469,
+          "id": 948772846071364571,
           "keyMapping": {
             "input": [],
             "output": []
@@ -54,15 +54,15 @@
           "name": ""
         }
       ],
-      "entryPoint": 4058387577648167303,
-      "id": 2069338196796962571,
+      "entryPoint": 3343320852743350914,
+      "id": 2931682442813202891,
       "inTransitions": [],
       "name": "InheritBlackboardRunSubPlan",
       "outTransitions": [],
-      "parentPlan": 1179066429431332056,
+      "parentPlan": 450195508701585436,
       "positionWeb": {
-        "x": 627,
-        "y": 277
+        "x": 483,
+        "y": 242.30540466308594
       },
       "type": "State",
       "variableBindings": []

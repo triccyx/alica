@@ -9,17 +9,17 @@
 
 namespace alica
 {
-class TestInheritBlackboardMaster : public AlicaTestsPlan<TestInheritBlackboardMaster>
+class TestGlobalBlackboardMaster : public AlicaTestsPlan<TestGlobalBlackboardMaster>
 {
 public:
-    TestInheritBlackboardMaster(PlanContext& context);
+    TestGlobalBlackboardMaster(PlanContext& context);
 
 protected:
     virtual void run() override;
     virtual void onInit() override;
 };
 
-BOOST_DLL_ALIAS(alica::TestInheritBlackboardMaster::create, TestInheritBlackboardMaster)
-BOOST_DLL_ALIAS(alica::BasicUtilityFunction::create, TestInheritBlackboardMasterUtilityFunction)
+BOOST_DLL_ALIAS(alica::TestGlobalBlackboardMaster::create, TestGlobalBlackboardMaster)
+BOOST_DLL_ALIAS(alica::BasicUtilityFunction::create, TestGlobalBlackboardMasterUtilityFunction)
 
 } /* namespace alica */

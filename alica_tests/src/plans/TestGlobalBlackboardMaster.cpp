@@ -1,19 +1,15 @@
-#include <alica_tests/plans/TestInheritBlackboardMaster.h>
+#include <alica_tests/plans/TestGlobalBlackboardMaster.h>
 
 namespace alica
 {
-TestInheritBlackboardMaster::TestInheritBlackboardMaster(PlanContext& context)
+TestGlobalBlackboardMaster::TestGlobalBlackboardMaster(PlanContext& context)
         : AlicaTestsPlan(context)
 {
 }
 
-void TestInheritBlackboardMaster::onInit()
-{
-    LockedBlackboardRW bb(*getBlackboard());
-    bb.set<int64_t>("masterKey", 123);
-}
+void TestGlobalBlackboardMaster::onInit() {}
 
-void TestInheritBlackboardMaster::run()
+void TestGlobalBlackboardMaster::run()
 {
     std::optional<int64_t> behaviourKeyInMaster;
     {

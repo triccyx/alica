@@ -44,7 +44,7 @@ RuleBook::RuleBook(ConfigChangeListener& configChangeListener, SyncModule& syncM
 
 RuleBook::~RuleBook() {}
 
-void RuleBook::init(const Blackboard* globalBlackboard)
+void RuleBook::init(std::shared_ptr<const Blackboard> globalBlackboard)
 {
     _globalBlackboard = globalBlackboard;
     _ps->setGlobalBlackboard(globalBlackboard);
@@ -424,7 +424,7 @@ PlanChange RuleBook::transitionRule(RunningPlan& r)
             continue;
         }
 
-        if (t->getTransitionCondition()->evaluate(&r, _globalBlackboard, t->getKeyMapping())) {
+        if (t->getTransitionCondition()->evaluate(&r, _globalBlackboard.get(), t->getKeyMapping())) {
             nextState = t->getOutState();
             break;
         }
@@ -464,7 +464,7 @@ PlanChange RuleBook::synchTransitionRule(RunningPlan& rp)
             continue;
         }
         if (_syncModule.isTransitionSuccessfullySynchronised(t)) {
-            if (t->getTransitionCondition()->evaluate(&rp, _globalBlackboard, t->getKeyMapping())) {
+            if (t->getTransitionCondition()->evaluate(&rp, _globalBlackboard.get(), t->getKeyMapping())) {
                 // we follow the transition, because it holds and is synchronised
                 nextState = t->getOutState();
                 // TODO: Find solution for constraints with new transition conditions
@@ -476,7 +476,7 @@ PlanChange RuleBook::synchTransitionRule(RunningPlan& rp)
             }
         } else {
             // adds a new synchronisation process or updates existing
-            _syncModule.setSynchronisation(t, t->getTransitionCondition()->evaluate(&rp, _globalBlackboard, t->getKeyMapping()));
+            _syncModule.setSynchronisation(t, t->getTransitionCondition()->evaluate(&rp, _globalBlackboard.get(), t->getKeyMapping()));
         }
     }
     if (nextState == nullptr) {
